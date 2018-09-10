@@ -7,8 +7,12 @@ const ResultView = function(){
 
 ResultView.prototype.displayResult = function(result){
   const resultElement = document.querySelector('#result');
-  resultElement.textContent = `You entered ${result}`;
-}
+  if(result){
+    resultElement.textContent = "You've entered a prime number.";
+} else{
+    resultElement.textContent = "This is not a prime number."
+}};
+
 
 ResultView.prototype.bindEvents = function(){
   PubSub.subscribe('PrimeChecker:result-calculated', (event) => {
